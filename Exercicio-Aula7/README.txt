@@ -7,11 +7,15 @@ idade
 CPF
 estado civil
 CEP
+- OK
 
-adicione um getter e um setter para cada umas das propriedades.
-crie o construtor da classe
-de override em equals e hashCode
-crie o método toString
+
+adicione um getter e um setter para cada umas das propriedades. - OK
+
+crie o construtor da classe - OK
+
+de override em equals e hashCode - OK
+crie o método toString - OK
 no método setter do CEP, certifique-se que o CEP passado contenha 8 dígitos numéricos, se não lance uma exceção
 
        BONUS:  no método setter do CPF verifique se o numero de CPF é valido baseado na seguintes regras descritas no link abaixo, em caso do CPF passado for incorreto retorne uma exceção:

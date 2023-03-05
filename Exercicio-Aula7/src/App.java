@@ -1,9 +1,10 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        //PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", 25, 95074554, 01012367002);
+        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", 25, 95074554, 01012367002);
+        System.out.println(guilherme.contarCaracteres(95074554));
     }
 
-class PessoaFisica {
+public static class PessoaFisica {
     private String nome, ultimoNome, genero, estadoCivil;
     private int idade, cep;
     private long cpf;
