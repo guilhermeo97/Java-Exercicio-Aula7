@@ -1,9 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", 25, 95074554, 65888312266);
-
+        //PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", 25, 95074554, 01012367002);
     }
-}
 
 class PessoaFisica {
     private String nome, ultimoNome, genero, estadoCivil;
@@ -125,5 +123,13 @@ class PessoaFisica {
     public String toString() {
         return "PessoaFisica [nome=" + nome + ", ultimoNome=" + ultimoNome + ", genero=" + genero + ", estadoCivil="
                 + estadoCivil + ", idade=" + idade + ", cep=" + cep + ", cpf=" + cpf + "]";
+    }
+
+    public int contarCaracteres(int cep){
+        this.cep = cep;
+        String qtd = Integer.toString(this.cep);
+        return qtd.length();
+    }
+
     }
 }
