@@ -1,68 +1,97 @@
+import javax.sql.rowset.spi.SyncResolver;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", 25, 95074554, 01012367002);
-        System.out.println(guilherme.contarCaracteres(95074554));
-    }
+        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", "95074554", "01012367002", 25);
+        
+    }  
+}
 
-public static class PessoaFisica {
-    private String nome, ultimoNome, genero, estadoCivil;
-    private int idade, cep;
-    private long cpf;
+class PessoaFisica {
+    private String nome, ultimoNome, genero, estadoCivil, cep ,cpf;
+    private int idade;
     
-
-    public PessoaFisica(String nome, String ultimoNome, String genero, String estadoCivil, int idade, int cep,
-            long cpf) {
+    
+    public PessoaFisica(String nome, String ultimoNome, String genero, String estadoCivil, String cep, String cpf,
+            int idade) {
         this.nome = nome;
         this.ultimoNome = ultimoNome;
         this.genero = genero;
         this.estadoCivil = estadoCivil;
-        this.idade = idade;
         this.cep = cep;
         this.cpf = cpf;
+        this.idade = idade;
     }
 
 
     public String getNome() {
         return nome;
     }
+
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
     public String getUltimoNome() {
         return ultimoNome;
     }
+
+
     public void setUltimoNome(String ultimoNome) {
         this.ultimoNome = ultimoNome;
     }
+
+
     public String getGenero() {
         return genero;
     }
+
+
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
+
     public String getEstadoCivil() {
         return estadoCivil;
     }
+
+
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
+
+
+    public String getCep() {
+        return cep;
+    }
+
+        public void setCep(String cep) {
+            this.cep = cep;
+            cep.length();
+            
+        }
+
+
+    public String getCpf() {
+        return cpf;
+    }
+
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+
     public int getIdade() {
         return idade;
     }
+
+
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-    public int getCep() {
-        return cep;
-    }
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-    public long getCpf() {
-        return cpf;
-    }
-    public void setCpf(long cpf) {
-        this.cpf = cpf;
     }
 
 
@@ -74,9 +103,9 @@ public static class PessoaFisica {
         result = prime * result + ((ultimoNome == null) ? 0 : ultimoNome.hashCode());
         result = prime * result + ((genero == null) ? 0 : genero.hashCode());
         result = prime * result + ((estadoCivil == null) ? 0 : estadoCivil.hashCode());
+        result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
         result = prime * result + idade;
-        result = prime * result + cep;
-        result = prime * result + (int) (cpf ^ (cpf >>> 32));
         return result;
     }
 
@@ -110,11 +139,17 @@ public static class PessoaFisica {
                 return false;
         } else if (!estadoCivil.equals(other.estadoCivil))
             return false;
+        if (cep == null) {
+            if (other.cep != null)
+                return false;
+        } else if (!cep.equals(other.cep))
+            return false;
+        if (cpf == null) {
+            if (other.cpf != null)
+                return false;
+        } else if (!cpf.equals(other.cpf))
+            return false;
         if (idade != other.idade)
-            return false;
-        if (cep != other.cep)
-            return false;
-        if (cpf != other.cpf)
             return false;
         return true;
     }
@@ -123,14 +158,7 @@ public static class PessoaFisica {
     @Override
     public String toString() {
         return "PessoaFisica [nome=" + nome + ", ultimoNome=" + ultimoNome + ", genero=" + genero + ", estadoCivil="
-                + estadoCivil + ", idade=" + idade + ", cep=" + cep + ", cpf=" + cpf + "]";
+                + estadoCivil + ", cep=" + cep + ", cpf=" + cpf + ", idade=" + idade + "]";
     }
-
-    public int contarCaracteres(int cep){
-        this.cep = cep;
-        String qtd = Integer.toString(this.cep);
-        return qtd.length();
-    }
-
-    }
+    
 }
