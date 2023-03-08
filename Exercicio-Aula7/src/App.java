@@ -1,9 +1,8 @@
-import javax.sql.rowset.spi.SyncResolver;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Homem", "Casado", "95074554", "01012367002", 25);
-        
+        PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Masculino", "Casado", "95074554", "01012367002", 25);
+        guilherme.setCep("9507455");
+        System.out.println(guilherme.getCep());
     }  
 }
 
@@ -67,13 +66,17 @@ class PessoaFisica {
     public String getCep() {
         return cep;
     }
-
-        public void setCep(String cep) {
-            this.cep = cep;
-            cep.length();
-            
-        }
-
+    public void setCep(String cep){
+        //int cont = cep.length();
+        this.cep = cep;
+        try {
+            if(cep.length() == 8){
+                return;
+            }
+        } catch (Exception e) {
+            cep = "CEP Inválido";
+        }         
+    }
 
     public String getCpf() {
         return cpf;
