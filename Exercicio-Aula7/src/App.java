@@ -1,8 +1,13 @@
 public class App {
     public static void main(String[] args) throws Exception {
         PessoaFisica guilherme = new PessoaFisica("Guilherme", "Oliveira", "Masculino", "Casado", "95074554", "01012367002", 25);
-        guilherme.setCep("95074554");
-        System.out.println(guilherme.getCep());
+        try {
+            guilherme.setCep("9507455"); 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        System.out.println("Execução terminada");
     }  
 }
 
@@ -66,7 +71,7 @@ class PessoaFisica {
     public String getCep() {
         return cep;
     }
-    public void setCep(String cep){
+    public void setCep(String cep) throws IllegalArgumentException{
         this.cep = cep;
             if(cep.length() != 8){
                 IllegalArgumentException erro = new IllegalArgumentException("CEP Inválido");
